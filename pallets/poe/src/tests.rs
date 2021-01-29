@@ -28,9 +28,9 @@ fn create_claim_failed_when_claim_already_exist() {
 #[test]
 fn create_claim_failed_when_claim_is_too_long() {
     new_test_ext().execute_with(|| {
-        let claim = vec![0, 1, 2, 3, 4, 5, 6];
+        let claim = vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-        assert_noop!(PoeModule::create_claim(Origin::signed(1), claim.clone()), Error::<Test>::ProofTooLong);
+        assert_noop!(PoeModule::create_claim(Origin::signed(1), claim.clone()), Error::<Test>::ClaimTooLong);
     })
 }
 
